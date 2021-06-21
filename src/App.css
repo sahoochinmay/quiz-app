@@ -1,6 +1,5 @@
 * {
   font-family: "Verdana", cursive, sans-serif;
-  color: #ffffff;
 }
 body {
   background-color: #7cc6fe;
@@ -33,11 +32,10 @@ body {
   font-weight: 300;
   letter-spacing: 2px;
   cursor: pointer;
+  color: white;
 }
-/* /////////////////////////////////////////////// */
-/* /////////////////////  start ////////////////// */
-/* //////////////////////////////////////////////// */
 .startBox{
+  color: white;
   height: 100%;
   display: flex;
   align-items: center;
@@ -53,6 +51,7 @@ body {
   font-weight: 300;
   letter-spacing: 2px;
   cursor: pointer;
+  color: white;
 }
 /* /////////////////////////////////////////////// */
 /* /////////////////////  question ////////////////// */
@@ -60,6 +59,7 @@ body {
 .questionBox{
  position: relative;
  height: 100%;
+ color: white;
 }
 .questionBox .questionHead{
   display: flex;
@@ -132,6 +132,7 @@ pointer-events: none;
 .endBox{
   align-items: center;
   text-align: center;
+  color: white;
 }
 .trophy{
   height: 50px;
@@ -153,12 +154,14 @@ pointer-events: none;
   position: absolute;
   border-radius: 10px;
   padding: 10px;
-  background: rgb(10, 170, 127);
+  background: white;
+  color: black;
   width: 50%;
-  height: auto;
+  height: 80%;
   top:50%;
   left:50%;
   transform: translate(-50%,-50%);
+  overflow: auto;
 }
 
 .display-block {
@@ -171,11 +174,33 @@ pointer-events: none;
 .modalBody{
   text-align: left;
 }
+.modalBody header{
+  display: flex;
+  justify-content: space-between;
+  font-size: 20px;
+  padding: 10px;
+}
 .bg-success{
-  background: green;
+  background: #48c774;
   color: white;
+  padding: 10px;
+  width: 90%;
+  font-size: 13px;
+  font-weight: 500;
+}
+.bg-warning{
+  background: #3273dc;
+  color: white;
+  padding: 10px;
+  width: 90%;
+  font-size: 13px;
+  font-weight: 300;
 }
 .bg-danger{
-  background: red;
+  background: #f14668;
   color: white;
+  padding: 10px;
+  width: 90%;
+  font-size: 13px;
+  font-weight: 500;
 }

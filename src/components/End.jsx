@@ -50,37 +50,39 @@ const End = ({ time }) => {
           Try again
         </button>
       </section>
-      <Modal show={modal} handleClose={() => setModal(false)}>
-        <section className="modalBody" >
-        <header>
-          <p className="">Your answers</p>
-          {/* <button className="delete" onClick={onClose}>Close</button> */}
-        </header>
-        <section className="content">
-          <ul>
-            {answers.map((result, i) => (
-              <li key={i} className="mb-6">
-                <p>
-                  <strong>{result.q}</strong>
-                </p>
-                <p
-                  className={
-                    result.a === quizData?.data[i].answer
-                      ? "bg-success"
-                      : "bg-danger"
-                  }
-                >
-                  Your answer: {result.a}
-                </p>
-                {result.a !== quizData?.data[i].answer && (
-                  <p className="bg-success">
-                    Correct answer: {quizData?.data[i].answer}
+      <Modal show={modal}>
+        <section className="modalBody">
+          <header>
+            <p className="">Your Answers</p>
+            <p  style={{
+              cursor: "pointer"
+            }} onClick={() => setModal(false)}>X</p>
+          </header>
+          <section className="content">
+            <ul>
+              {answers.map((result, i) => (
+                <li key={i} className="mb-6">
+                  <p>
+                    <strong>{result.q}</strong>
                   </p>
-                )}
-              </li>
-            ))}
-          </ul>
-        </section>
+                  <p
+                    className={
+                      result.a === quizData?.data[i].answer
+                        ? "bg-success"
+                        : "bg-danger"
+                    }
+                  >
+                    Your answer: {result.a}
+                  </p>
+                  {result.a !== quizData?.data[i].answer && (
+                    <p className="bg-warning">
+                      Correct answer: {quizData?.data[i].answer}
+                    </p>
+                  )}
+                </li>
+              ))}
+            </ul>
+          </section>
         </section>
       </Modal>
     </div>
