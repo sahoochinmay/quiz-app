@@ -1,4 +1,4 @@
-import {QUIZ_START,QUIZ_NEXT , QUIZ_SUBMIT} from '../constant/quizConstant' 
+import {QUIZ_START,QUIZ_NEXT , QUIZ_SUBMIT, QUIZ_RESET, QUIZ_PREV} from '../constant/quizConstant' 
 
 export const startQuiz = () => dispatch =>{
     dispatch({
@@ -14,9 +14,23 @@ export const nextQuiz = ({answers}) => dispatch =>{
     })
 }
 
+export const prevQuiz = () =>dispatch =>{
+    dispatch({
+        type: QUIZ_PREV,
+        payload: null
+    })
+}
+
 export const submitQuiz = ({answers}) => dispatch =>{
     dispatch({
         type: QUIZ_SUBMIT,
         payload:answers
+    })
+}
+
+export const resetQuiz = () => dispatch =>{
+    dispatch({
+        type: QUIZ_RESET,
+        payload:null
     })
 }

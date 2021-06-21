@@ -1,39 +1,88 @@
 import React, { useEffect, useState } from "react";
-import { formatTime } from '../utils';
+import { useSelector, useDispatch } from "react-redux";
+import { resetQuiz } from "../redux/action/quizAction";
+import { formatTime } from "../utils";
+import quizData from "../data/quiz.json";
+import Modal from "./Modal";
+import Trophy from "../assets/images/trophy.png";
 
-const End = ({results,data,time,onAnswersCheck,onReset}) => {
+const End = ({ time }) => {
+  const dispatch = useDispatch();
+  const { answers } = useSelector((state) => state.quizReducer);
   const [correctAnswers, setCorrectAnswers] = useState(0);
-
+  const [modal, setModal] = useState(false);
   useEffect(() => {
     let correct = 0;
-    results.forEach((result, index) => {
-      if(result.a === data[index].answer) {
+    answers.forEach((result, index) => {
+      if (result.a === quizData?.data[index].answer) {
         correct++;
       }
     });
     setCorrectAnswers(correct);
   }, []);
-
+  const handleReset = () => {
+    dispatch(resetQuiz());
+  };
   return (
-    <div className="card">
-        <div>
-          <h3>Your results</h3>
-          <p>
-            {correctAnswers} of {data.length}
-          </p>
-          <p>
-            <strong>{Math.floor((correctAnswers / data.length) * 100)}%</strong>
-          </p>
-          <p>
-            <strong>Your time:</strong> {formatTime(time)}
-          </p>
-          <button  onClick={onAnswersCheck}>
-            Check your answers
-          </button>
-          <button  onClick={onReset}>
-            Try again
-          </button>
-        </div>
+    <div className="endBox">
+      <img src={Trophy} className="trophy" alt="" srcset="" />
+      <h3>Your results</h3>
+      <p>
+        {correctAnswers} of {quizData?.data.length}
+      </p>
+      <p>
+        <strong>
+          {Math.floor((correctAnswers / quizData?.data.length) * 100)}%
+        </strong>
+      </p>
+      <p>
+        <strong>Your time:</strong> {formatTime(time)}
+      </p>
+      <section>
+        <button className="button" onClick={() => setModal(true)}>
+          Check your answers
+        </button>
+        <button
+          className="button"
+          style={{ marginLeft: "20px" }}
+          onClick={handleReset}
+        >
+          Try again
+        </button>
+      </section>
+      <Modal show={modal} handleClose={() => setModal(false)}>
+        <section className="modalBody" >
+        <header>
+          <p className="">Your answers</p>
+          {/* <button className="delete" onClick={onClose}>Close</button> */}
+        </header>
+        <section className="content">
+          <ul>
+            {answers.map((result, i) => (
+              <li key={i} className="mb-6">
+                <p>
+                  <strong>{result.q}</strong>
+                </p>
+                <p
+                  className={
+                    result.a === quizData?.data[i].answer
+                      ? "bg-success"
+                      : "bg-danger"
+                  }
+                >
+                  Your answer: {result.a}
+                </p>
+                {result.a !== quizData?.data[i].answer && (
+                  <p className="bg-success">
+                    Correct answer: {quizData?.data[i].answer}
+                  </p>
+                )}
+              </li>
+            ))}
+          </ul>
+        </section>
+        </section>
+      </Modal>
     </div>
   );
 };

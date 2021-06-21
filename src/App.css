@@ -1,44 +1,175 @@
-html,
-body,
-#root {
-  height: 100%;
+* {
+  font-family: "Verdana", cursive, sans-serif;
+  color: #ffffff;
+}
+body {
+  background-color: #7cc6fe;
+  /* background-image: url(./assets/images/bg.jpg); */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
 }
 
 .App {
+  background-color: #252d4a;
+  height: 50vh;
+   max-height: 600px;
+  width: 60vw;
+  max-width: 800px;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 10px 10px 42px 0px rgba(0, 0, 0, 0.75);
+}
+/* /////////////////////////////////////////////// */
+/* /////////////////////  start ////////////////// */
+/* //////////////////////////////////////////////// */
+.button{
+  background: rgb(131, 5, 189);
+  outline: none;
+  border: none;
+  padding: 10px;
+  border-radius: 4px;
+  font-weight: 300;
+  letter-spacing: 2px;
+  cursor: pointer;
+}
+/* /////////////////////////////////////////////// */
+/* /////////////////////  start ////////////////// */
+/* //////////////////////////////////////////////// */
+.startBox{
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 100%;
-}
-
-.App .card {
-  max-width: 400px;
-  width: 100%;
   text-align: center;
 }
-
-label.radio {
-  display: block;
-  text-align: left;
-  padding: 15px;
-  margin-bottom: 5px;
+.startButton{
+  background: rgb(131, 5, 189);
+  outline: none;
+  border: none;
+  padding: 10px;
+  border-radius: 4px;
+  font-weight: 300;
+  letter-spacing: 2px;
+  cursor: pointer;
+}
+/* /////////////////////////////////////////////// */
+/* /////////////////////  question ////////////////// */
+/* //////////////////////////////////////////////// */
+.questionBox{
+ position: relative;
+ height: 100%;
+}
+.questionBox .questionHead{
+  display: flex;
+  justify-content: space-between;
+}
+.middleBox{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+  grid-template-areas:
+      "question option";
+}
+.question{
+  grid-area: question;
+}
+.question p{
   font-size: 20px;
 }
-
-label.radio+.radio {
-  margin-left: 0;
+.option{
+  grid-area: option;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: flex-start;
 }
-
-label.radio input {
-  margin-right: 10px;
+.option .text{
+  width: 80%;
+  font-size: 16px;
+  border-radius: 15px;
+  padding: 5px;
+  border: 5px solid #234668;
+  cursor: pointer;
+  margin-bottom: 8px;
 }
-.modal{
-  border: 1px solid red;
-  background: wheat;
+.option .text:hover{
+  background: #234668;
+}
+.option .text input{
+  position: fixed;
+opacity: 0;
+pointer-events: none;
+}
+.selected{
+  background: rgb(131, 5, 189);
+  width: 80%;
+  font-size: 16px;
+  border-radius: 15px;
+  padding: 5px;
+  border: 5px solid #234668;
+  cursor: pointer;
+  margin-bottom: 8px;
+}
+.option .selected input{
+  position: fixed;
+opacity: 0;
+pointer-events: none;
+}
+.questionBottom{
   position: absolute;
-  left: auto;
-  right: auto;
-  top: 30%;
+  bottom: 0;
+  width: 100%;
+}
+.nextBtn{
+  float: right;
+}
+/* /////////////////////////////////////////////// */
+/* /////////////////////  end ////////////////// */
+/* //////////////////////////////////////////////// */
+.endBox{
+  align-items: center;
+  text-align: center;
+}
+.trophy{
+  height: 50px;
+}
+
+/* /////////////////////////////////////////////// */
+/* /////////////////////  modal ////////////////// */
+/* //////////////////////////////////////////////// */
+.modal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width:100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.modal-main {
+  position: absolute;
+  border-radius: 10px;
+  padding: 10px;
+  background: rgb(10, 170, 127);
+  width: 50%;
+  height: auto;
+  top:50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+}
+
+.display-block {
+  display: block;
+}
+
+.display-none {
+  display: none;
+}
+.modalBody{
+  text-align: left;
 }
 .bg-success{
   background: green;

@@ -3,11 +3,9 @@ import "./App.css";
 import {useSelector, useDispatch} from 'react-redux'
 
 import End from "./components/End";
-import Modal from "./components/Modal";
 import Question from "./components/Question";
 import Start from "./components/Start";
 import quizData from "./data/quiz.json";
-import { startQuiz } from "./redux/action/quizAction";
 
 
 let interval;
@@ -24,41 +22,25 @@ const App = () => {
       clearInterval(interval);
     }
   }, [step]);
-  const handleQuizStart = () => {
-    dispatch(startQuiz())
-    interval = setInterval(() => {
-      setTime(prevTime => prevTime + 1);
-    }, 1000);
-  };
-  const resetClickHandler = () => {
-    // TODO:
-    // setActiveQuestion(0);
-    // setAnswers([]);
-    // setStep(1);
-    setTime(0);
-    setShowModal(false)
-  }
+  // TODO:
+  // const handleQuizStart = () => {
+  //   interval = setInterval(() => {
+  //     setTime(prevTime => prevTime + 1);
+  //   }, 1000);
+  // };
+  // const resetClickHandler = () => {
+  //   setTime(0);
+  //   setShowModal(false)
+  // }
   return (
     <div className="App">
-      {step === 1 && <Start onQuizStart={handleQuizStart} />}
-      {step === 2 && (
-        <Question
-          numberOfQuestions={quizData.data.length}
-          // TODO:
-          // onSetStep={setStep}
-        />
-      )}
-      {step === 3 && <End 
-      results={answers}
+      {step === 1 && <Start/>}
+      {step === 2 && <Question/>
+      }
+      {step === 3 && <End
       data={quizData.data}
       time={time}
-      onReset={resetClickHandler}
       onAnswersCheck={() => setShowModal(true)}
-      />}
-      {showModal && <Modal 
-        onClose={() => setShowModal(false)}
-        results={answers}
-        data={quizData.data}
       />}
     </div>
   );
