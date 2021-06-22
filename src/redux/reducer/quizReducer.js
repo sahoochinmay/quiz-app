@@ -12,7 +12,7 @@ const quizReducer = (state = initialState , action) =>{
     switch (type) {
         case QUIZ_START:
             return {
-                ...state,step:2
+                ...state,step:2 , time: payload
             }
         case QUIZ_NEXT:
             return{

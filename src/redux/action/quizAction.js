@@ -1,9 +1,9 @@
 import {QUIZ_START,QUIZ_NEXT , QUIZ_SUBMIT, QUIZ_RESET, QUIZ_PREV} from '../constant/quizConstant' 
 
-export const startQuiz = () => dispatch =>{
+export const startQuiz = (time) => dispatch =>{
     dispatch({
         type: QUIZ_START,
-        payload: null
+        payload: time
     })
 }
 

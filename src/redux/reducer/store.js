@@ -7,7 +7,7 @@ import {persistReducer } from 'redux-persist'
 
 import quizReducer from "./quizReducer";
 
-const reducers =persistReducer({storage: storage,key:'a26' }, combineReducers({
+const reducers =persistReducer({storage: storage,key:'a27' }, combineReducers({
     quizReducer
 }));
 
