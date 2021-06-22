@@ -21,10 +21,13 @@ export const prevQuiz = () =>dispatch =>{
     })
 }
 
-export const submitQuiz = ({answers}) => dispatch =>{
+export const submitQuiz = ({answers,time}) => dispatch =>{
     dispatch({
         type: QUIZ_SUBMIT,
-        payload:answers
+        payload:{
+            answers: answers,
+            time: time
+        }
     })
 }
 

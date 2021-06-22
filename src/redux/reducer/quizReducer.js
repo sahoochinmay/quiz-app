@@ -4,7 +4,7 @@ const initialState = {
     step : 1,
     activeQuestion: 0,
     answers: [],
-    time: 0
+    time: 60
 }
 
 const quizReducer = (state = initialState , action) =>{
@@ -20,11 +20,11 @@ const quizReducer = (state = initialState , action) =>{
             }
         case QUIZ_SUBMIT:
             return{
-                ...state,step:3,answers:[...payload]
+                ...state,step:3,answers:[...payload?.answers] , time: payload?.time
             }
         case QUIZ_RESET:
             return{
-                ...state,step:1,activeQuestion:0,answers:[]
+                ...state,step:1,activeQuestion:0,answers:[], time: 60
             }
         case QUIZ_PREV:
             return{

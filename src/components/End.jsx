@@ -6,9 +6,9 @@ import quizData from "../data/quiz.json";
 import Modal from "./Modal";
 import Trophy from "../assets/images/trophy.png";
 
-const End = ({ time }) => {
+const End = () => {
   const dispatch = useDispatch();
-  const { answers } = useSelector((state) => state.quizReducer);
+  const { answers,time } = useSelector((state) => state.quizReducer);
   const [correctAnswers, setCorrectAnswers] = useState(0);
   const [modal, setModal] = useState(false);
   useEffect(() => {
@@ -36,7 +36,7 @@ const End = ({ time }) => {
         </strong>
       </p>
       <p>
-        <strong>Your time:</strong> {formatTime(time)}
+        <strong>Your time:</strong> {time}sec
       </p>
       <section>
         <button className="button" onClick={() => setModal(true)}>

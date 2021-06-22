@@ -5,16 +5,22 @@ import quizData from "../data/quiz.json";
 
 const Question = () => {
   const dispatch = useDispatch();
-  const { activeQuestion, answers } = useSelector(
+  const { activeQuestion, answers , time } = useSelector(
     (state) => state?.quizReducer
   );
   const [data, setData] = useState(quizData?.data[activeQuestion]);
   const [error, setError] = useState("");
   const [selected, setSelected] = useState("");
+  const [timer,setTimer] = useState(time)
+  useEffect(() => {
+    if(timer > 0 )
+    {
+      setTimeout(() => setTimer(timer - 1), 1000)
+    }else{
+
+    }
+  }, [timer]);
   const radiosWrapper = useRef();
-  console.log(activeQuestion);
-  console.log(selected);
-  console.log(answers[activeQuestion]?.a);
   useEffect(() => {
     setData(quizData?.data[activeQuestion]);
     if (answers[activeQuestion] != undefined) {
@@ -66,6 +72,7 @@ const Question = () => {
             a: selected,
           }),
         ],
+        time: time - timer
       })
     );
   };
@@ -75,7 +82,7 @@ const Question = () => {
         <h3>
           Question {activeQuestion + 1}/{quizData?.data.length}
         </h3>
-        <h5>0</h5>
+        <h5>{timer}</h5>
       </section>
       <section className="middleBox" >
         <div className="question" >
