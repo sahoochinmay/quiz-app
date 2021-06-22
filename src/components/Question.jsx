@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { nextQuiz, prevQuiz, submitQuiz } from "../redux/action/quizAction";
+import { nextQuiz, prevQuiz, submitQuiz ,timeOut } from "../redux/action/quizAction";
 import quizData from "../data/quiz.json";
 
 const Question = () => {
@@ -17,7 +17,7 @@ const Question = () => {
     {
       setTimeout(() => setTimer(timer - 1), 1000)
     }else{
-
+      dispatch(timeOut());
     }
   }, [timer]);
   const radiosWrapper = useRef();

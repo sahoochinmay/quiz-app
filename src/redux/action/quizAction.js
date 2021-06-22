@@ -1,4 +1,4 @@
-import {QUIZ_START,QUIZ_NEXT , QUIZ_SUBMIT, QUIZ_RESET, QUIZ_PREV} from '../constant/quizConstant' 
+import {QUIZ_START,QUIZ_NEXT , QUIZ_SUBMIT, QUIZ_RESET, QUIZ_PREV , QUIZ_TIMEOUT} from '../constant/quizConstant' 
 
 export const startQuiz = (time) => dispatch =>{
     dispatch({
@@ -35,5 +35,12 @@ export const resetQuiz = () => dispatch =>{
     dispatch({
         type: QUIZ_RESET,
         payload:null
+    })
+}
+
+export const timeOut = () =>dispatch =>{
+    dispatch({
+        type: QUIZ_TIMEOUT,
+        payload: null
     })
 }

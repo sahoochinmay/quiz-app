@@ -1,4 +1,4 @@
-import {QUIZ_START , QUIZ_RESET , QUIZ_NEXT,QUIZ_SUBMIT, QUIZ_PREV} from '../constant/quizConstant'
+import {QUIZ_START , QUIZ_RESET , QUIZ_NEXT,QUIZ_SUBMIT, QUIZ_PREV , QUIZ_TIMEOUT} from '../constant/quizConstant'
 
 const initialState = {
     step : 1,
@@ -29,6 +29,10 @@ const quizReducer = (state = initialState , action) =>{
         case QUIZ_PREV:
             return{
                 ...state,activeQuestion:state?.activeQuestion-1
+            }
+        case QUIZ_TIMEOUT:
+            return{
+                ...state, time: 0,step:3
             }
         default:
             return state;
