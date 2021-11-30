@@ -23,17 +23,16 @@
 [<img align="left" alt="codeSTACKr | Twitter" width="22px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/twitter.svg" />][twitter]
 [<img align="left" alt="codeSTACKr | LinkedIn" width="22px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/linkedin.svg" />][linkedin]
 [<img align="left" alt="codeSTACKr | Instagram" width="22px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/instagram.svg" />][instagram]
-[<img align="left" alt="codeSTACKr | Instagram" width="22px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/facebook.svg" />][facebook]
-[<img align="left" alt="codeSTACKr | Instagram" width="22px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/youtube.svg" />][youtube]
+
+[twitter]: https://twitter.com/_Sahoochinmay
+[instagram]: https://www.instagram.com/_sahoochinmay/
+[linkedin]: https://www.linkedin.com/in/chinmay-ranjan-sahoo-865b75161/
 
 
 
 
 
 [website]: https://github.com/sahoochinmay
-[twitter]: https://twitter.com/_Sahoochinmay
-[instagram]: https://www.instagram.com/_sahoochinmay/
-[linkedin]: https://www.linkedin.com/in/chinmay-ranjan-sahoo-865b75161/
 [facebook]: https://www.facebook.com/chinmay.ranjan.961/
 [vscode]: https://code.visualstudio.com/
 [reactjs]: https://reactjs.org/
