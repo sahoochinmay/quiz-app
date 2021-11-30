@@ -3,11 +3,13 @@
 
 ##### I'm Chinmay Ranjan Sahoo [sahoochinmay][website] 😄
 
-### Here is a simple UI design using reactjs. 
+### Here is a simple Quiz app using reactjs and redux. 
 
 ---
-[Live Demo][livedemo] 😄
+## [Live Demo][livedemo] 😄
+<br />
 
+[Youtube Video][youtubevideo]
 ---
 
 <br />
@@ -28,7 +30,7 @@
 [instagram]: https://www.instagram.com/_sahoochinmay/
 [linkedin]: https://www.linkedin.com/in/chinmay-ranjan-sahoo-865b75161/
 
-
+[youtubevideo]: https://youtu.be/NcMgZnWRxAg
 
 
 
