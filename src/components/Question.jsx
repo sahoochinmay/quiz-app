@@ -1,22 +1,26 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { nextQuiz, prevQuiz, submitQuiz ,timeOut } from "../redux/action/quizAction";
+import {
+  nextQuiz,
+  prevQuiz,
+  submitQuiz,
+  timeOut,
+} from "../redux/action/quizAction";
 import quizData from "../data/quiz.json";
 
 const Question = () => {
   const dispatch = useDispatch();
-  const { activeQuestion, answers , time } = useSelector(
+  const { activeQuestion, answers, time } = useSelector(
     (state) => state?.quizReducer
   );
   const [data, setData] = useState(quizData?.data[activeQuestion]);
   const [error, setError] = useState("");
   const [selected, setSelected] = useState("");
-  const [timer,setTimer] = useState(time)
+  const [timer, setTimer] = useState(time);
   useEffect(() => {
-    if(timer > 0 )
-    {
-      setTimeout(() => setTimer(timer - 1), 1000)
-    }else{
+    if (timer > 0) {
+      setTimeout(() => setTimer(timer - 1), 1000);
+    } else {
       dispatch(timeOut());
     }
   }, [timer]);
@@ -72,7 +76,7 @@ const Question = () => {
             a: selected,
           }),
         ],
-        time: time - timer
+        time: time - timer,
       })
     );
   };
@@ -84,14 +88,17 @@ const Question = () => {
         </h3>
         <h5>{timer}</h5>
       </section>
-      <section className="middleBox" >
-        <div className="question" >
-        <p>{data?.question}</p>
-        {error && <div>{error}</div>}
+      <section className="middleBox">
+        <div className="question">
+          <p>{data?.question}</p>
+          {error && <div>{error}</div>}
         </div>
         <div className="option" ref={radiosWrapper}>
           {data?.choices.map((choice, i) => (
-            <label className={`${choice === selected ? `selected`: `text`}`} key={i}>
+            <label
+              className={`${choice === selected ? `selected` : `text`}`}
+              key={i}
+            >
               <input
                 type="radio"
                 name="answer"
@@ -104,17 +111,23 @@ const Question = () => {
           ))}
         </div>
       </section>
-        <section className="questionBottom">
-          {activeQuestion <= 0 ? null : (
-            <button className="button" onClick={handlePrev}>Prev</button>
-          )}
+      <section className="questionBottom">
+        {activeQuestion <= 0 ? null : (
+          <button className="button" onClick={handlePrev}>
+            Prev
+          </button>
+        )}
 
-          {activeQuestion + 1 >= quizData?.data.length ? (
-            <button className="button nextBtn" onClick={handleSubmit}>Submit</button>
-          ) : (
-            <button className="button nextBtn" onClick={handleNext}>Next</button>
-          )}
-        </section>
+        {activeQuestion + 1 >= quizData?.data.length ? (
+          <button className="button nextBtn" onClick={handleSubmit}>
+            Submit
+          </button>
+        ) : (
+          <button className="button nextBtn" onClick={handleNext}>
+            Next
+          </button>
+        )}
+      </section>
     </div>
   );
 };
